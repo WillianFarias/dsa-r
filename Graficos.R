@@ -36,3 +36,45 @@ ggplot(mtcars, aes(x = as.factor(cyl), fill = as.factor(cyl) )) +
   geom_bar( ) +
   scale_fill_manual(values = c("red", "green", "blue"))
   #scale_fill_manual(values = c("A ", "B ", "C ", "D "), value = c(33, 62, 56, 67))
+
+#criando dados dummy(fictícios)
+dados = data.frame(group = c("A", "B", "C ", "D "), value = c(33,62,56,67))
+View(dados)
+
+#Barplot
+ggplot(dados, aes(x = group, y = value, fill = group)) + 
+  geom_bar(width = 0.85, stat = "identity")
+
+#Pie Chart - Gráfico de pizza
+fatias <- c(4,12,14,16,8)
+paises <- c("Brasil", "Estados Unidos", "Alemanha", "Reino Unido", "Espanha")
+?pie
+pie(fatias, labels = paises, main = "Leitura de Livros Por Pessoa/Ano")
+
+#Pie chart 3d
+install.packages("plotrix")
+library(plotrix)
+
+fatias <- c(4,12,14,16,8)
+paises <- c("Brasil", "Estados Unidos", "Alemanha", "Reino Unido", "Espanha")
+?pie3D
+pie3D(fatias, labels = paises, explode = 0.1, main = "Leitura de Livros Por Pessoa/Ano")
+
+#Line Chart - gráficos de linha
+#Dados
+carros <- c(1, 3, 6, 4, 9)
+caminhoes <- c(2, 5, 4, 5, 12)
+
+#Plot
+plot(carros, type="o", col = "blue", ylim= c(0,12))
+
+lines(caminhoes, type = "o", pch = 22, lty = 2, col = "red")
+
+title(main = "Produção de Veículos", col.main = "red", font.main = 4)
+
+#Plot
+View(mpg) #dados default
+ggplot(mpg, aes(x = reorder(class, hwy), y = hwy, fill = class)) +
+  geom_boxplot() + 
+  xlab("class") +
+  theme(legend.position = "none")
