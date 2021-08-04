@@ -78,3 +78,13 @@ ggplot(mpg, aes(x = reorder(class, hwy), y = hwy, fill = class)) +
   geom_boxplot() + 
   xlab("class") +
   theme(legend.position = "none")
+
+####Scatter Plot #####
+##gráfico bi dimensional, analisa mais de uma variavel
+#library(ggplot2)
+data = data.frame(cond = rep(c("condition_1", "condition_2"), each=10),
+                  my_x = 1:100 + rnorm(100, sd=9), my_y = 1:100 + rnorm(100,sd=16))
+
+View(data)
+ggplot(data, aes(x=my_x, y=my_y))+
+  geom_point(shape=1)
