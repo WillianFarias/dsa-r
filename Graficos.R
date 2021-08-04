@@ -88,3 +88,8 @@ data = data.frame(cond = rep(c("condition_1", "condition_2"), each=10),
 View(data)
 ggplot(data, aes(x=my_x, y=my_y))+
   geom_point(shape=1)
+
+#adiciona linha de regressao ao gráfico
+ggplot(data, aes(x=my_x, y=my_y)) +
+  geom_point(shape=1) + 
+  geom_smooth(method = lm, color="red", se=TRUE) #se=FALSE) LIMITE DE ERRO
