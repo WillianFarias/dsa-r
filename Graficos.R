@@ -146,7 +146,23 @@ yfit <- dnorm(xfit, mean = mean(x), sd = sd(x))
 yfit <- yfit*diff(h$mids[1:2])*length(x)
 lines(xfit, yfit, col = "blue", lwd = 2)
 
+#usando o ggplot2
+library(ggplot2)
 
+#dataset
+dados = data.frame(value = rnorm(10000))
+
+#Tamanho das colunas
+ggplot(dados, aes(x=value)) + 
+  geom_histogram(binwidth = 0.05)
+
+#Cor uniforme
+ggplot(dados, aes(x=value)) +
+  geom_histogram(binwidth = 0.2, color = "white", fill=rgb(0.2, 0.7, 0.1, 0.4))
+
+#Cor proporcional
+ggplot(dados, aes(x=value)) +
+  geom_histogram(binwidth = 0.2, aes(fill = ..count..))
 
 
 
