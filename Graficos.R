@@ -120,10 +120,38 @@ treemap(dados,
         overlap.labels = 0.5,
         inflate.labels = F)
 
-#Treem map customizado
+#Treemap customizado
 treemap(dados,
         index = c("grupo", "subgrupo"),
         vSize = "valor",
         type = "index",
         border.col = c("black", "white"),
         border.lwds = c(7,2))
+
+###Histograma###
+
+#Gerando valores para x
+x <- mtcars$mpg
+
+#Criando o histograma
+h <- hist(x,
+          breaks = 10,
+          col = "red",
+          xlab = "Milhas Por Galão",
+          main = "Histograma com Curva de Distribuição")
+
+#Customizando o histograma
+xfit <- seq(min(x), max(x), length = 40)
+yfit <- dnorm(xfit, mean = mean(x), sd = sd(x))
+yfit <- yfit*diff(h$mids[1:2])*length(x)
+lines(xfit, yfit, col = "blue", lwd = 2)
+
+
+
+
+
+
+
+
+
+ 
