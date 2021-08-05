@@ -7,7 +7,8 @@ vendas <- read.csv("Vendas.csv", fileEncoding = "windows-1252")
 
 #Carrega ddplot2
 library(ggplot2)
+View(vendas)
 
 #Criando gráfico
 ?ggplot
-ggplot(Valor, Custo, data = vendas)
+qplot(Valor, Custo, data = vendas)
